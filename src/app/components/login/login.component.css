@@ -1,70 +1,83 @@
-* {
-    margin: 0;
-    padding: 0;
+*{
+    color: green;
     box-sizing: border-box;
-    overflow: hidden;
 }
 
-.login_Section {
-    background-color: rgba(227, 227, 227, 0.2);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+/* Switch personalizado */
+.custom-switch {
+    position: relative;
+    display: inline-block;
+    min-width: 60px;
+    height: 30px;
+    cursor: pointer;
+}
+  
+.custom-input-checkbox {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    position: absolute;
+}
+  
+.slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(128, 128, 128, 0.2);
+    border: 2px solid transparent;
+    border-radius: 30px;
+    transition: 0.4s;
+}
+  
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 22px;
+    width: 22px;
+    left: 4px;
+    bottom: 3px;
+    background-color: white;
+    border-radius: 50%;
+    transition: 0.4s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+  
+.custom-input-checkbox:checked + .slider {
+    background-color: green;
+    border-color: green;
+}
+  
+.custom-input-checkbox:checked + .slider:before {
+    transform: translateX(26px);
 }
 
-.form_Login{
-    width: 80%;
-    padding: 10px;
-}
-
-.inputs_Login{
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-}
-
-.checkbox_Login {
-    justify-self: flex-end;
-}
-
-
-/* .login_Section > form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-} */
-
+  /* Botão */
 .btn_Login {
-    width: 100%;
-    background-color: rgba(128, 128, 128, 0.7);
-    border-color: rgb(153, 153, 153);
+    transition: 0.5 ease;
 }
 
 .btn_Login:hover {
-    background-color: rgba(128, 128, 128);
+    background-color: green;
+    scale: 1.01;
 }
 
-
+/* Imagem da Logo */
 
 .img_Logo {
-    justify-self: center;
-    align-self: center;
-    position: fixed;
-    top: 3%;
-    max-width: 10%;
     height: auto;
+    width: 80px;
 }
 
-.img_Pricipal {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
+@media (min-width: 768px) {
+    .img_Logo {
+        width: 120px;
+    }
 }
-
-.img_Pricipal > img {
-    opacity: 0.5;
-    
+@media (min-width: 992px) {
+    .img_Logo {
+        width: 160px;
+    }
 }
+  
