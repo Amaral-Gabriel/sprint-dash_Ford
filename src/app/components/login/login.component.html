@@ -24,14 +24,14 @@
         <img src="/img/ford.png" class="img_Logo position-absolute justify-content-start top-0 mt-3" alt="Logo da Ford" />
         <h1 class="text-color: green my-4">Boas-vindas</h1>
 
-        <form class="w-100 px-3" (ngSubmit)="onLogin()">
+        <form class="w-100 px-3" (ngSubmit)="onLogin()" #loginForm="ngForm">
           <div class="d-flex flex-column gap-4">
 
             <!-- E-mail -->
             <div class="row g-0 align-items-center">
               <div class="col-11 position-relative">
                 <i class="bi bi-person position-absolute top-50 start-0 translate-middle-y ms-2"></i>
-                <input  type="text" [(ngModel)]="loginObj.EmailId"
+                <input required type="text" [(ngModel)]="loginObj.EmailId"
                 name="email" class="form-control ps-4" placeholder="Insira seu e-mail" />
               </div>
               <div class="col-1 text-end">
@@ -43,7 +43,7 @@
             <div class="row g-0 mb-3 align-items-center">
                 <div class="col-11 position-relative">
                     <i class="bi bi-lock position-absolute top-50 start-0 translate-middle-y ms-2"></i>
-                    <input [(ngModel)]="loginObj.Password"
+                    <input required [(ngModel)]="loginObj.Password"
                     name="password" id="passwordInput" type="password" class="custom-input form-control ps-4 fs-7" placeholder="Insira sua senha">
                     <i id="togglePassword" class="bi bi-eye position-absolute top-50 end-0 translate-middle-y me-2" style="cursor: pointer;"></i>
                 </div>
@@ -69,8 +69,23 @@
 
             <!-- Botão -->
              <div class="col-12 col-md-11">
-                <button type="submit" class="btn_Login btn btn-secondary w-100">Entrar</button>
+                <button [disabled]="!loginForm.form.valid" type="submit" class="btn_Login btn btn-secondary w-100">Entrar</button>
              </div>
+
+            <!-- Mensagem de erro -->
+            <div *ngIf="errorMessage" class="erro">
+              <p class="alert alert-danger col-12 col-md-11 text-center" >{{ errorMessage }}</p>
+            </div>
+            
+            <div *ngIf="successMessage" class="sucesso">
+              <div class="container-fluid col-12 col-md-11 text-center">
+                <div class="spinner-border text-success" role="status">
+                  <span class="sr-only"></span>
+                </div>
+              </div>
+              
+            </div>
+            
             
 
           </div>
