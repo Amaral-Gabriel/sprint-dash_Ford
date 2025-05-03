@@ -1,0 +1,9 @@
+.actual::before {
+    content: "";
+    position: absolute; 
+    left: 0; 
+    top: 0;
+    width: 4px; 
+    height: 100%; 
+    background-color: orangered; 
+}

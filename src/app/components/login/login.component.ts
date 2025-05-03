@@ -43,11 +43,12 @@ export class LoginComponent {
             this.successMessage = 'Login realizado com sucesso!';
             console.log('Login OK', user);
             localStorage.setItem('isLoggedIn', 'true');
+            localStorage.setItem('token', 'fake-jwt-token');
             
             // Redireciona
             setTimeout(() => {
-              this.router.navigate(['/dashboard']);
-            }, 3000);
+              this.router.navigate(['/home']);
+            }, 1000);
           } else {
             this.errorMessage = 'Senha incorreta!';
             console.error('Senha incorreta');
