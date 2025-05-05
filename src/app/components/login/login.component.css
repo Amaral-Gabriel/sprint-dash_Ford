@@ -1,5 +1,5 @@
 *{
-    color: green;
+    color: var(--ford-color);
     box-sizing: border-box;
 }
 
@@ -45,8 +45,8 @@
 }
   
 .custom-input-checkbox:checked + .slider {
-    background-color: green;
-    border-color: green;
+    background-color: var(--ford-color);
+    border-color: blue;
 }
   
 .custom-input-checkbox:checked + .slider:before {
@@ -59,7 +59,7 @@
 }
 
 .btn_Login:hover {
-    background-color: green;
+    background-color: var(--ford-color);
     scale: 1.01;
 }
 

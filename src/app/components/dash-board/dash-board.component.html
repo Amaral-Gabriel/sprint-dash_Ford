@@ -20,7 +20,7 @@
         <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4">
           <div class="col">
             <div class="card border-2  rounded-0 h-100">
-              <h5 class="card-header">Veículo</h5>
+              <h5 class="card-header rounded-0">Veículo</h5>
               <div class="card-body h3">
                 <select class="form-select w-100" (change)="onVehicleSelect($event)">
                   <option *ngFor="let v of vehicles" [value]="v.id">{{ v.vehicle }}</option>
@@ -30,14 +30,14 @@
           </div>
 
           <!-- Imagem carro para telas pequenas -->
-          <div class="col d-flex d-sm-none justify-content-center mt-4 w-100">
+          <div class="col d-flex d-sm-none justify-content-center mt-4 w-100" >
             <img class="w-75 imgCar" [src]= "img" alt="Imagem do carro selecionado">
           </div>
         
           <!-- Total de Vendas -->
           <div class="col">
             <div class="card rounded-0 border-2 h-100">
-              <h5 class="card-header">Total de Vendas</h5>
+              <h5 class="card-header rounded-0">Total de Vendas</h5>
               <div class="card-body">
                 <h5 class="card-title text-primary h3">{{ totalVendas }}</h5>
                 <p class="card-text">Unid.</p>
@@ -48,7 +48,7 @@
           <!-- Conectados -->
           <div class="col">
             <div class="card rounded-0 border-2 h-100">
-              <h5 class="card-header">Conectados</h5>
+              <h5 class="card-header rounded-0">Conectados</h5>
               <div class="card-body">
                 <h5 class="card-title text-primary h3">{{ conectados }}</h5>
                 <p class="card-text">Unid.</p>
@@ -59,7 +59,7 @@
           <!-- Update Software -->
           <div class="col">
             <div class="card rounded-0 border-2 h-100">
-              <h5 class="card-header">Update Software</h5>
+              <h5 class="card-header rounded-0">Update Software</h5>
               <div class="card-body">
                 <h5 class="card-title text-primary h3">{{ updateSoftware }}</h5>
                 <p class="card-text">Unid.</p>
@@ -71,7 +71,7 @@
           
           
           <!-- Foto Carro para telas grandes -->
-          <div class="col-12 d-none d-sm-flex  justify-content-center mt-4">
+          <div class="col-12 d-none d-sm-flex  justify-content-center mt-4" style="height: 200px;">
             <img class=" imgCar" [src]="img" alt="Imagem do carro selecionado">
           </div>
 
@@ -102,7 +102,7 @@
                       required 
                       ngModel
                       [ngClass]="{'border-danger': inputInvalido}">
-                      <button type="submit" class="btn"><h4><i class="bi bi-arrow-right mb-4" style="color: #0056b3;"></i></h4></button>
+                      <button type="submit" class="btn"><h4><i class="bi bi-arrow-right mb-4" style="color: var(--ford-color);"></i></h4></button>
                     </form>
                   </td>
                   <td>{{ vehicleData?.odometro || "" }} Km</td>
@@ -136,7 +136,7 @@
                       required 
                       ngModel
                       [ngClass]="{'border-danger': inputInvalido}">
-                    <button type="submit" class="btn"><h4><i class="bi bi-arrow-right mb-4" style="color: #0056b3;"></i></h4></button>
+                    <button type="submit" class="btn"><h4><i class="bi bi-arrow-right mb-4" style="color: var(--ford-color);"></i></h4></button>
                   </form>
                 </span>
                 <p><strong>Odômetro:</strong> {{ vehicleData?.odometro || 0 }} Km</p>

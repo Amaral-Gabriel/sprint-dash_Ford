@@ -33,27 +33,27 @@ export class LoginComponent {
 
     const url = `http://localhost:3000/login`;
 
-this.http.post(url, {
-  nome: this.loginObj.EmailId,
-  senha: this.loginObj.Password
-}).subscribe({
-  next: (response: any) => {
-    this.successMessage = 'Login realizado com sucesso!';
-    localStorage.setItem('isLoggedIn', 'true');
-    localStorage.setItem('token', 'fake-jwt-token');
-    setTimeout(() => {
-      this.router.navigate(['/home']);
-    }, 1000);
-  },
-  error: (err) => {
-    if (err.status === 400 || err.status === 401) {
-      this.errorMessage = err.error.message;
-    } else {
-      this.errorMessage = 'Erro ao realizar login.';
-    }
-    console.error('Erro:', err);
-  }
-});
+    this.http.post(url, {
+      nome: this.loginObj.EmailId,
+      senha: this.loginObj.Password
+    }).subscribe({
+      next: (response: any) => {
+        this.successMessage = 'Login realizado com sucesso!';
+        localStorage.setItem('isLoggedIn', 'true');
+        localStorage.setItem('token', 'fake-jwt-token');
+        setTimeout(() => {
+          this.router.navigate(['/home']);
+        }, 1000);
+      },
+      error: (err) => {
+        if (err.status === 400 || err.status === 401) {
+          this.errorMessage = err.error.message;
+        } else {
+          this.errorMessage = 'Erro ao realizar login.';
+        }
+        console.error('Erro:', err);
+      }
+    });
   }
 }
 

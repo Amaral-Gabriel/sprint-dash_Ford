@@ -2,16 +2,22 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
- 
-
 }
 
 body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
 
+.text-primary {
+    color: var(--ford-color) !important;
+}
+
+.card-header {
+    color: white;
+    background-color: var(--ford-color) !important;
+    border-radius: 0;
 }
 
 .title {
@@ -24,26 +30,25 @@ body {
 }
 
 thead {
-    background-color: #0056b3;
+    background-color: var(--ford-color);;
     color: white;
   }
 
 .bg-primary {
-    background-color: #0056b3;
+    background-color: var(--ford-color);;
 }
-
 
 .botton {
     margin: 0;
     padding: 0;
-    background-color: #0056b3;
+    background-color: var(--ford-color);;
     width: 100%;
     height: 30px;
     border: solid 2px black;
 }
 
 table.tabela thead th {
-    background-color: #0056b3; 
+    background-color: var(--ford-color);; 
     color: white;
     
 }
@@ -53,11 +58,11 @@ tbody, td {
 }
 
 th, thead, table {
-    border: solid 1px black;
+    border: solid 1px grey;
 }
 
 table.tabela tbody{
-    border-bottom: 30px solid #0056b3;
+    border-bottom: 30px solid var(--ford-color);
 }
 
 
