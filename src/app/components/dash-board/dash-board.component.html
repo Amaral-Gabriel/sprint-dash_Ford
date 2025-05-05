@@ -17,81 +17,139 @@
         <div class="title col-12"><h1 class="text-center text-primary">Dashboard FORD</h1>
         </div>
         <!-- Cards -->
-        <div class="row d-flex justify-content-center col-12">
-            <div class="col gap-4 d-flex justify-content-center  w-100">
-                <div class="card rounded-0 w-100 ">
-                    <h5 class="card-header">Veiculo</h5>
-                    <div class="card-body">
-                        <select class="form-select w-75" id="exampleFormControlSelect1 ">
-                            <option>Ranger</option>
-                            <option>Mustang</option>
-                            <option>Territory</option>
-                            <option>Bronco Sport</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="card rounded-0 w-100">
-                    <h5 class="card-header">Total de Vendas</h5>
-                    <div class="card-body">
-                        <p class="card-title">1500</p>
-                        <p class="card-text">Unid.</p>
-                    </div>
-                </div>
-                <div class="card rounded-0 w-100">
-                    <h5 class="card-header">Conectados</h5>
-                    <div class="card-body">
-                        <p class="card-title">500</p>
-                        <p class="card-text">Unid.</p>
-                    </div>
-                </div>
-                
-                <div class="card rounded-0 w-100">
-                        <h5 class="card-header">Update Software</h5>
-                        <div class="card-body">
-                            <p class="card-title">750</p>
-                            <p class="card-text">Unid.</p>
-                        </div>
-                </div>
-                
-
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4">
+          <div class="col">
+            <div class="card border-2  rounded-0 h-100">
+              <h5 class="card-header">Veículo</h5>
+              <div class="card-body h3">
+                <select class="form-select w-100" (change)="onVehicleSelect($event)">
+                  <option *ngFor="let v of vehicles" [value]="v.id">{{ v.vehicle }}</option>
+                </select>
+              </div>
             </div>
-        </div>
+          </div>
+
+          <!-- Imagem carro para telas pequenas -->
+          <div class="col d-flex d-sm-none justify-content-center mt-4 w-100">
+            <img class="w-75 imgCar" [src]= "img" alt="Imagem do carro selecionado">
+          </div>
+        
+          <!-- Total de Vendas -->
+          <div class="col">
+            <div class="card rounded-0 border-2 h-100">
+              <h5 class="card-header">Total de Vendas</h5>
+              <div class="card-body">
+                <h5 class="card-title text-primary h3">{{ totalVendas }}</h5>
+                <p class="card-text">Unid.</p>
+              </div>
+            </div>
+          </div>
           
-          <!-- Foto Carro -->
-          <div class="col-12 d-flex justify-content-center mt-4" >
-            <img class=" imgCar" src="/img/mustang.png" alt="">
-          </div>
-
-          <div class="footer p-1">
-            <table class="tabela table">
-                <thead id="tabelaTopo">
-                  <tr>
-                    <th>Código - Vin</th>
-                    <th>Odômetro</th>
-                    <th>Nível de Combustível</th>
-                    <th>Status</th>
-                    <th>Lat.</th>
-                    <th>Long.</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><p class="border d-inline-block m-0 p-1">8R21N2D3NP7P4QCNE4O8V</p></td>
-                    <td>50000 Km</td>
-                    <td>90%</td>
-                    <td>on</td>
-                    <td>12,2322</td>
-                    <td>35,2314</td>
-                  </tr>
-                </tbody>
-              </table>
-              
-            <div class="botton">
-                <span></span>
+          <!-- Conectados -->
+          <div class="col">
+            <div class="card rounded-0 border-2 h-100">
+              <h5 class="card-header">Conectados</h5>
+              <div class="card-body">
+                <h5 class="card-title text-primary h3">{{ conectados }}</h5>
+                <p class="card-text">Unid.</p>
+              </div>
             </div>
-
-
           </div>
+          
+          <!-- Update Software -->
+          <div class="col">
+            <div class="card rounded-0 border-2 h-100">
+              <h5 class="card-header">Update Software</h5>
+              <div class="card-body">
+                <h5 class="card-title text-primary h3">{{ updateSoftware }}</h5>
+                <p class="card-text">Unid.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+          
+          
+          <!-- Foto Carro para telas grandes -->
+          <div class="col-12 d-none d-sm-flex  justify-content-center mt-4">
+            <img class=" imgCar" [src]="img" alt="Imagem do carro selecionado">
+          </div>
+
+          <!-- Tabela visível a partir de md (>=768px) -->
+          <div class="table-responsive d-none d-md-block">
+            <table class="tabela table table-striped w-100 border">
+              <thead >
+                <tr>
+                  <th>Código - Vin</th>
+                  <th>Odômetro</th>
+                  <th>Nível de Combustível</th>
+                  <th>Status</th>
+                  <th>Lat.</th>
+                  <th>Long.</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="m-0">
+                    <form (ngSubmit)="buscarPorVin()">
+                      <input 
+                      class="border-1" 
+                      [(ngModel)]="vinInput" 
+                      name="vin" 
+                      type="text" 
+                      maxlength="20" 
+                      style="text-transform: uppercase; width: 200px;" 
+                      required 
+                      ngModel
+                      [ngClass]="{'border-danger': inputInvalido}">
+                      <button type="submit" class="btn"><h4><i class="bi bi-arrow-right mb-4" style="color: #0056b3;"></i></h4></button>
+                    </form>
+                  </td>
+                  <td>{{ vehicleData?.odometro || "" }} Km</td>
+                  <td>{{ vehicleData?.nivelCombustivel || "" }}%</td>
+                  <td>
+                    <span>
+                      {{ vehicleData?.status || "" }}
+                    </span>
+                  </td>
+                  <td>{{ vehicleData?.lat || "" }}</td>
+                  <td>{{ vehicleData?.long || "" }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Cards visíveis apenas em telas pequenas (<768px) -->
+          <div class="d-block d-md-none">
+            <div class="card my-3 rounded-0 ">
+              <h5 class="card-header text-center">Status do Veículo</h5>
+              <div class="card-body">
+                <span><strong>Código - Vin: </strong>
+                  <form (ngSubmit)="buscarPorVin()">
+                    <input 
+                      class="border-1" 
+                      [(ngModel)]="vinInput" 
+                      name="vin" 
+                      type="text" 
+                      maxlength="20" 
+                      style="text-transform: uppercase; width: 200px;" 
+                      required 
+                      ngModel
+                      [ngClass]="{'border-danger': inputInvalido}">
+                    <button type="submit" class="btn"><h4><i class="bi bi-arrow-right mb-4" style="color: #0056b3;"></i></h4></button>
+                  </form>
+                </span>
+                <p><strong>Odômetro:</strong> {{ vehicleData?.odometro || 0 }} Km</p>
+                <p><strong>Nível de Combustível:</strong> {{ vehicleData?.nivelCombustivel || 0 }}%</p>
+                <p><strong>Status: </strong> <span class=" fw-bold">{{ vehicleData?.status || "Veículo não encontrado"}}</span></p>
+                <p><strong>Lat.:</strong> {{ vehicleData?.lat || 0 }}</p>
+                <p><strong>Long.:</strong> {{ vehicleData?.long || 0 }}</p>
+              </div>
+            </div>
+          </div>
+
+          
+          
       
         
       </div>

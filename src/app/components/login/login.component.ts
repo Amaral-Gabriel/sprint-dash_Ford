@@ -31,38 +31,29 @@ export class LoginComponent {
       return;
     }
 
-    const url = `http://localhost:3000/users?EmailId=${this.loginObj.EmailId}&Password=${this.loginObj.Password}`;
+    const url = `http://localhost:3000/login`;
 
-    this.http.get(url).subscribe({
-      next: (users: any) => {
-        if (users.length > 0) {
-          const user = users[0]; // O primeiro usuário encontrado
-          
-          // Checa se a senha corresponde
-          if (user.Password === this.loginObj.Password) {
-            this.successMessage = 'Login realizado com sucesso!';
-            console.log('Login OK', user);
-            localStorage.setItem('isLoggedIn', 'true');
-            localStorage.setItem('token', 'fake-jwt-token');
-            
-            // Redireciona
-            setTimeout(() => {
-              this.router.navigate(['/home']);
-            }, 1000);
-          } else {
-            this.errorMessage = 'Senha incorreta!';
-            console.error('Senha incorreta');
-          }
-        } else {
-          this.errorMessage = 'Usuário não encontrado ou senha incorreta!';
-          console.error('Usuário não encontrado ou senha incorreta!');
-        }
-      },
-      error: (err) => {
-        this.errorMessage = 'Erro ao realizar a requisição';
-        console.error('Erro na requisição', err);
-      }
-    });
+this.http.post(url, {
+  nome: this.loginObj.EmailId,
+  senha: this.loginObj.Password
+}).subscribe({
+  next: (response: any) => {
+    this.successMessage = 'Login realizado com sucesso!';
+    localStorage.setItem('isLoggedIn', 'true');
+    localStorage.setItem('token', 'fake-jwt-token');
+    setTimeout(() => {
+      this.router.navigate(['/home']);
+    }, 1000);
+  },
+  error: (err) => {
+    if (err.status === 400 || err.status === 401) {
+      this.errorMessage = err.error.message;
+    } else {
+      this.errorMessage = 'Erro ao realizar login.';
+    }
+    console.error('Erro:', err);
+  }
+});
   }
 }
 

@@ -2,8 +2,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    overflow: hidden;
-    overflow: hidden;
+
+ 
 
 }
 
@@ -42,10 +42,33 @@ thead {
     border: solid 2px black;
 }
 
-#tabelaTopo {
-    background-color: #0056b3;
+table.tabela thead th {
+    background-color: #0056b3; 
+    color: white;
+    
 }
 
-th {
-    background-color: #0056b3;
+tbody, td {
+    background-color: white !important;
+}
+
+th, thead, table {
+    border: solid 1px black;
+}
+
+table.tabela tbody{
+    border-bottom: 30px solid #0056b3;
+}
+
+
+
+@media (max-width: 576px) {
+    .card {
+      max-width: 300px;
+      margin: 0 auto;   
+    }
+}
+
+.border-danger {
+    border: 2px solid red !important;
 }
