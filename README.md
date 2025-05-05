@@ -91,7 +91,7 @@ You need to clone the API repository:
 Then, run the following commands:
 
 ```bash
-cd api-ford
+cd api-angular-ford-main
 npm install
 npm start
 ```
@@ -211,7 +211,7 @@ API-FORD - GitHub: https://github.com/Amaral-Gabriel/API-FORD
 
 E executar os comandos:
 
-cd api-ford
+cd api-angular-ford-main
 
 npm install
 
