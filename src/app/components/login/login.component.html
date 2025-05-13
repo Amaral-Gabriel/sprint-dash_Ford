@@ -16,13 +16,14 @@
       
       <!-- Imagem Lateral -->
       <div class="col-md-7 d-flex align-items-center justify-content-center bg-whith">
-        <img class="img-fluid w-75 opacity-50" src="/img/ranger.png" alt="Ford Ranger na cor vermelha." />
+        <div class="d-none d-md-flex whiteBG"></div>
+        <img class="img-fluid w-75" src="/img/ranger.png" alt="Ford Ranger na cor vermelha." />
       </div>
 
       <!-- Seção de Login -->
       <div class="col-md-5 d-flex flex-column justify-content-center align-items-center bg-body-secondary p-4 position-relative">
         <img src="/img/ford.png" class="img_Logo position-absolute justify-content-start top-0 mt-3" alt="Logo da Ford" />
-        <h1 class="text-color: green my-4">Boas-vindas</h1>
+        <h1 class="my-4" id="textWelcome">Boas-vindas</h1>
 
         <form class="w-100 px-3" (ngSubmit)="onLogin()" #loginForm="ngForm">
           <div class="d-flex flex-column gap-4">
@@ -43,9 +44,9 @@
             <div class="row g-0 mb-3 align-items-center">
                 <div class="col-11 position-relative">
                     <i class="bi bi-lock position-absolute top-50 start-0 translate-middle-y ms-2"></i>
-                    <input required [(ngModel)]="loginObj.Password"
-                    name="password" id="passwordInput" type="password" class="custom-input form-control ps-4 fs-7" placeholder="Insira sua senha">
-                    <i id="togglePassword" class="bi bi-eye position-absolute top-50 end-0 translate-middle-y me-2" style="cursor: pointer;"></i>
+                    <input  required [(ngModel)]="loginObj.Password"
+                    name="password" id="passwordInput" [type]="showPasswordType ? 'text' : 'password'" class="custom-input form-control ps-4 fs-7" placeholder="Insira sua senha">
+                    <i (click)="showPassword()" id="togglePassword" class="bi bi-eye position-absolute top-50 end-0 translate-middle-y me-2" style="cursor: pointer;"></i>
                 </div>
             </div>
               
@@ -69,7 +70,7 @@
 
             <!-- Botão -->
              <div class="col-12 col-md-11">
-                <button [disabled]="!loginForm.form.valid" type="submit" class="btn_Login btn btn-secondary w-100">Entrar
+                <button type="submit" class="btn_Login btn btn-dark-moon w-100">Entrar
                 </button>
              </div>
 
@@ -78,12 +79,14 @@
               <p class="alert alert-danger col-12 col-md-11 text-center" >{{ errorMessage }}</p>
             </div>
             
-            <div *ngIf="successMessage" class="sucesso">
+            <div *ngIf="successMessage" class="sucesso col-12 col-md-11">
               <div class="container-fluid col-12 col-md-11 text-center">
                 <div class="spinner-border" role="status">
                   <span class="sr-only"></span>
                 </div>
               </div>
+
+              
               
             </div>
             
@@ -91,8 +94,12 @@
 
           </div>
         </form>
+        
       </div>
+      <svg class="wave d-none d-md-flex" id="wave" style="transform:rotate(0deg); transition: 0.3s" viewBox="0 0 1440 180" version="1.1" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="sw-gradient-0" x1="0" x2="0" y1="1" y2="0"><stop stop-color="rgba(0, 37, 82, 1)" offset="0%"></stop><stop stop-color="rgba(16, 153, 211, 1)" offset="100%"></stop></linearGradient></defs><path style="transform:translate(0, 0px); opacity:1" fill="url(#sw-gradient-0)" d="M0,108L48,105C96,102,192,96,288,90C384,84,480,78,576,90C672,102,768,132,864,144C960,156,1056,150,1152,138C1248,126,1344,108,1440,93C1536,78,1632,66,1728,75C1824,84,1920,114,2016,123C2112,132,2208,120,2304,120C2400,120,2496,132,2592,123C2688,114,2784,84,2880,60C2976,36,3072,18,3168,27C3264,36,3360,72,3456,96C3552,120,3648,132,3744,126C3840,120,3936,96,4032,99C4128,102,4224,132,4320,123C4416,114,4512,66,4608,45C4704,24,4800,30,4896,54C4992,78,5088,120,5184,114C5280,108,5376,54,5472,42C5568,30,5664,60,5760,60C5856,60,5952,30,6048,18C6144,6,6240,12,6336,27C6432,42,6528,66,6624,81C6720,96,6816,102,6864,105L6912,108L6912,180L6864,180C6816,180,6720,180,6624,180C6528,180,6432,180,6336,180C6240,180,6144,180,6048,180C5952,180,5856,180,5760,180C5664,180,5568,180,5472,180C5376,180,5280,180,5184,180C5088,180,4992,180,4896,180C4800,180,4704,180,4608,180C4512,180,4416,180,4320,180C4224,180,4128,180,4032,180C3936,180,3840,180,3744,180C3648,180,3552,180,3456,180C3360,180,3264,180,3168,180C3072,180,2976,180,2880,180C2784,180,2688,180,2592,180C2496,180,2400,180,2304,180C2208,180,2112,180,2016,180C1920,180,1824,180,1728,180C1632,180,1536,180,1440,180C1344,180,1248,180,1152,180C1056,180,960,180,864,180C768,180,672,180,576,180C480,180,384,180,288,180C192,180,96,180,48,180L0,180Z"></path></svg>
     </div>
+    
   </div>
+  
 </body>
 </html>

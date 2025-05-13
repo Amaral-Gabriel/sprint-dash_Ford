@@ -10,6 +10,7 @@ import { HeaderComponent } from '../../shared/header/header.component';
   templateUrl: './dash-board.component.html',
   styleUrls: ['./dash-board.component.css']
 })
+
 export class DashBoardComponent implements OnInit {
   vehicles: any[] = [];
   img: string = '';  // Variável para armazenar a URL da imagem
@@ -22,8 +23,11 @@ export class DashBoardComponent implements OnInit {
   errorMessage: string = '';
   isLoading: boolean = false;
   inputInvalido: boolean = false;
+  nameVehicles: string = "";
+  
 
   constructor(private api: ApiService) {}
+
 
   ngOnInit(): void {
     this.loadVehicles();
@@ -35,12 +39,16 @@ export class DashBoardComponent implements OnInit {
     this.api.getVehicles().subscribe({
       next: (response: any) => {
         this.vehicles = response.vehicles;
+
+        
         if (this.vehicles.length > 0) {
           this.selectedVehicle = this.vehicles[0];  
+          console.log(this.selectedVehicle.vehicle);
           this.img = this.selectedVehicle.img + '?' + new Date().getTime();
           this.totalVendas = this.selectedVehicle.volumetotal;
           this.conectados = this.selectedVehicle.connected;
           this.updateSoftware = this.selectedVehicle.softwareUpdates;
+          this.nameVehicles = this.selectedVehicle.vehicle;
         }
         this.isLoading = false;
       },
@@ -49,7 +57,8 @@ export class DashBoardComponent implements OnInit {
         console.error(err);
         this.isLoading = false;
         console.log('Imagem selecionada:', this.img);
-        console.log('Veículo selecionado:', this.selectedVehicle);
+        console.log('Veículo selecionado:', this.selectedVehicle.vehicle);
+        console.log(this.nameVehicles);
       }
     });
   }
@@ -59,12 +68,13 @@ export class DashBoardComponent implements OnInit {
     if (selectElement && selectElement.value) {
       const vehicleId = selectElement.value;
       this.selectedVehicle = this.vehicles.find(v => v.id === Number(vehicleId));
-      // Atualiza os dados do veículo selecionado
+   
       if (this.selectedVehicle) {
         this.img = this.selectedVehicle.img + '?' + new Date().getTime();
         this.totalVendas = this.selectedVehicle.volumetotal;
         this.conectados = this.selectedVehicle.connected;
         this.updateSoftware = this.selectedVehicle.softwareUpdates;
+        this.nameVehicles = this.selectedVehicle.vehicle;
       }
     }
     console.log('Imagem selecionada:', this.img);

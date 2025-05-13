@@ -15,9 +15,17 @@ export class LoginComponent {
   loginObj: Login;
   errorMessage: string = '';  // Mensagem de erro para exibir no template
   successMessage: string = ''; // Mensagem de sucesso para exibir no template
+  typePassword: string = "";
+  showPasswordType: boolean = false;
 
   constructor(private http: HttpClient, private router: Router) {
     this.loginObj = new Login();
+  }
+
+  showPassword(): void {
+    console.log("Senha");
+    this.showPasswordType = !this.showPasswordType;
+    
   }
 
   onLogin() {
@@ -31,7 +39,7 @@ export class LoginComponent {
       return;
     }
 
-    const url = `http://localhost:3000/login`;
+    const url = `http://localhost:3005/login`;
 
     this.http.post(url, {
       nome: this.loginObj.EmailId,
