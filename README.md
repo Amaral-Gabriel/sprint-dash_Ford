@@ -120,6 +120,13 @@ ng serve
 - If you encounter CORS errors, check that the backend allows connections from localhost:4200.
 - If images aren't loading, verify that they are placed inside the `assets/img/` folder.
 
+---
+
+## License
+This project is open source, feel free to use and modify it according to your needs. Don't forget to give due credit to the original author.
+
+### Created by Gabriel Amaral for Ford ENTER.
+
 
 ---
 Português :brazil:
@@ -245,3 +252,11 @@ ng serve
 - Certifique-se de que **frontend** e **backend** estejam em portas diferentes.
 - Em caso de erro de CORS, valide se o backend está permitindo conexões do localhost:4200.
 - Caso as imagens não carreguem, verifique se elas estão dentro da pasta assets/img/.
+
+--- 
+
+
+## Licença
+Este projeto é de código aberto, sinta-se à vontade para utilizar e modificar conforme suas necessidades. Não se esqueça de dar os devidos créditos ao autor original.
+
+### Criado por Gabriel Amaral para o Ford ENTER.
