@@ -1,7 +1,7 @@
 
 # 🚗 Ford System - Vehicle Dashboard
 
-:blue_car: Sprint Angular program **Ford <ENTER>**
+### :blue_car: Sprint Angular program **Ford <ENTER>**
 
 This is a **full-stack** project built with **Angular** on the frontend and **Node.js + Express** on the backend. It simulates a Ford vehicle control panel, allowing user authentication, viewing vehicle metrics, and VIN-based searches.
 
