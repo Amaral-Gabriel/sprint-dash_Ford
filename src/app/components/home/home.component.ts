@@ -10,10 +10,13 @@ import { HeaderComponent } from '../../shared/header/header.component';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
-export class HomeComponent implements OnInit {
+
+
+export class HomeComponent implements OnInit { // Home class
+
   constructor(private router: Router) {}
 
-  cards = [
+  cards = [ // Images for cards
     { id: 1, name: 'Ranger', img: 'img/ranger-frente.jpg' },
     { id: 2, name: 'Mustang', img: 'img/mustang-frente.jpg' },
     { id: 4, name: 'Bronco Sport', img: 'img/ford-antigo.jpg' },
@@ -23,7 +26,7 @@ export class HomeComponent implements OnInit {
     { id: 8, name: 'Bronco Sport', img: 'img/mustang-traseira.jpg' }
   ];
 
-  ngOnInit() {
+  ngOnInit() { 
     setInterval(() => {
       this.rotateCards();
     }, 30000); 

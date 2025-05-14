@@ -13,38 +13,33 @@ import { HeaderComponent } from '../../shared/header/header.component';
 
 export class DashBoardComponent implements OnInit {
   vehicles: any[] = [];
-  img: string = '';  // Variável para armazenar a URL da imagem
+  img: string = '';  
   totalVendas: number = 0;
   conectados: number = 0;
   updateSoftware: number = 0;
   selectedVehicle: any = null;
   vehicleData: any = null;
-  vinInput: string = ''; // Novo campo para capturar o VIN digitado
+  vinInput: string = ''; 
   errorMessage: string = '';
   isLoading: boolean = false;
   inputInvalido: boolean = false;
   nameVehicles: string = "";
   
-
   constructor(private api: ApiService) {}
-
 
   ngOnInit(): void {
     this.loadVehicles();
-    
   }
 
-  loadVehicles() {
+  loadVehicles() { 
     this.isLoading = true;
-    this.api.getVehicles().subscribe({
-      next: (response: any) => {
+    this.api.getVehicles().subscribe({ // Get data e wait for response
+      next: (response: any) => { // If success
         this.vehicles = response.vehicles;
-
         
-        if (this.vehicles.length > 0) {
+        if (this.vehicles.length > 0) { // If not empty
           this.selectedVehicle = this.vehicles[0];  
-          console.log(this.selectedVehicle.vehicle);
-          this.img = this.selectedVehicle.img + '?' + new Date().getTime();
+          this.img = this.selectedVehicle.img + '?' + new Date().getTime(); // Force get the latest image from server
           this.totalVendas = this.selectedVehicle.volumetotal;
           this.conectados = this.selectedVehicle.connected;
           this.updateSoftware = this.selectedVehicle.softwareUpdates;
@@ -54,18 +49,14 @@ export class DashBoardComponent implements OnInit {
       },
       error: (err) => {
         this.errorMessage = 'Erro ao carregar veículos.';
-        console.error(err);
         this.isLoading = false;
-        console.log('Imagem selecionada:', this.img);
-        console.log('Veículo selecionado:', this.selectedVehicle.vehicle);
-        console.log(this.nameVehicles);
       }
     });
   }
 
-  onVehicleSelect(event: Event) {
+  onVehicleSelect(event: Event) { // Get select car
     let selectElement = event.target as HTMLSelectElement;
-    if (selectElement && selectElement.value) {
+    if (selectElement && selectElement.value) { // Check if it's valid
       const vehicleId = selectElement.value;
       this.selectedVehicle = this.vehicles.find(v => v.id === Number(vehicleId));
    
@@ -77,26 +68,24 @@ export class DashBoardComponent implements OnInit {
         this.nameVehicles = this.selectedVehicle.vehicle;
       }
     }
-    console.log('Imagem selecionada:', this.img);
-    console.log('Veículo selecionado:', this.selectedVehicle);
   }
 
-  buscarPorVin() {
+  searchForVin() {
     if (!this.vinInput) return;
   
     this.isLoading = true;
-    this.api.getVehicleData(this.vinInput).subscribe({
+    this.api.getVehicleData(this.vinInput).subscribe({ // Get data e wait for response
       next: (data: any) => {
         this.vehicleData = data;
         this.errorMessage = '';
         this.isLoading = false;
-        this.inputInvalido = false; // VIN encontrado
+        this.inputInvalido = false; // VIN found
       },
       error: (err) => {
         this.vehicleData = null;
         this.errorMessage = err.error?.message || 'Erro ao buscar dados do veículo';
         this.isLoading = false;
-        this.inputInvalido = true; // VIN inválido
+        this.inputInvalido = true; // VIN invalid
       }
     });
   }
