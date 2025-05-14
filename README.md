@@ -1,7 +1,7 @@
 
 # 🚗 Ford System - Vehicle Dashboard
 
-## ⚠️ In Development
+:blue_car: Sprint Angular program **Ford <ENTER>**
 
 This is a **full-stack** project built with **Angular** on the frontend and **Node.js + Express** on the backend. It simulates a Ford vehicle control panel, allowing user authentication, viewing vehicle metrics, and VIN-based searches.
 
@@ -112,6 +112,8 @@ ng serve
 
 ---
 
+## :camera: Project Images
+
 ## 💡 Tips
 
 - Ensure **frontend** and **backend** are running on different ports.
@@ -120,12 +122,13 @@ ng serve
 
 
 ---
-Português 
+Português :brazil:
 ---
 
 # 🚗 Sistema Ford - Dashboard de Veículos
 
-## ⚠️ Em Desenvolvimento
+:blue_car: Sprint Angular do programa **Ford <ENTER>**
+
 
 Este é um projeto **full-stack** construído com **Angular** no frontend e **Node.js + Express** no backend. Ele simula um painel de controle de veículos da Ford, permitindo autenticação de usuários, visualização de métricas de veículos e consulta por VIN.
 
@@ -180,6 +183,7 @@ Este é um projeto **full-stack** construído com **Angular** no frontend e **No
 
 ## 📁 Estrutura de Pastas (Frontend)
 
+```bash
 src/
 ├── app/
 │   ├── components/
@@ -192,6 +196,7 @@ src/
 │   └── img/
 │       └── ranger.png
 └── index.html
+```
 
 ---
 
@@ -232,6 +237,8 @@ ng serve
 > O frontend será executado em: http://localhost:4200
 
 ---
+
+## :camera: Imagens do Projeto
 
 ## 💡 Dicas
 
