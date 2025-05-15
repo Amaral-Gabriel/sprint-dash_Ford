@@ -4,9 +4,28 @@
     box-sizing: content-box;
 }
 
-body {
+  
+  body {
+    height: 100vh;  
+    
+}
 
-    height: 100vh;
+  .bgBig {
+    -webkit-mask-image: linear-gradient(to top, black, black, transparent);
+    mask-image: linear-gradient(to top, black, black, transparent);
+    background-repeat: no-repeat;
+    background-size: cover;  
+    background-position: center;
+    height: 100vh;  
+    overflow: hidden;
+    z-index: 1;
+    
+}
+
+section {
+    z-index: 2;  
+    position: fixed;
+    background-color: antiquewhite;
 }
 
 .offcanvas-body {
@@ -31,12 +50,10 @@ body {
 }
 
 .card-img {
-    height: 150px;               /* Altura fixa para todas as imagens */
-    width: 100%;                 /* Largura total do card */
-    object-fit: contain;         /* Contém a imagem sem cortar */
+    height: 150px;              
+    width: 100%;                 
+    object-fit: contain;         
     background-color: #fff;      
     border-radius: 4px;
 }
-
-
 

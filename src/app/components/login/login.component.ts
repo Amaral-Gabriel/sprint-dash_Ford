@@ -12,17 +12,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 
-
-export class Login { // Login data class
-  EmailId: string;
-  Password: string;
-
-  constructor() {
-    this.EmailId = '';
-    this.Password = '';
-  }
-}
-
 export class LoginComponent { // Login class
   loginObj: Login;
   errorMessage: string = '';  
@@ -73,6 +62,16 @@ export class LoginComponent { // Login class
         console.error('Erro:', err);
       }
     });
+  }
+}
+
+export class Login { // Login data class
+  EmailId: string;
+  Password: string;
+
+  constructor() {
+    this.EmailId = '';
+    this.Password = '';
   }
 }
 
