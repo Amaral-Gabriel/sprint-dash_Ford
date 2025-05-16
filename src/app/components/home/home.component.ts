@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
-import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../../shared/header/header.component';
 
 @Component({
@@ -8,50 +8,52 @@ import { HeaderComponent } from '../../shared/header/header.component';
   standalone: true,
   imports: [CommonModule, HeaderComponent, RouterModule],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  styleUrls: ['./home.component.css']
 })
-
-
-export class HomeComponent implements OnInit { // Home class
-
-  constructor(private router: Router) {}
+export class HomeComponent implements OnInit {
   
-  cards = [ // Images for cards
+  constructor(
+    private router: Router,
+    @Inject(PLATFORM_ID) private platformId: Object // Injeta o ID da plataforma
+  ) {}
+
+  cards = [
     { id: 1, name: 'Ranger', img: 'img/ranger-frente.jpg' },
     { id: 2, name: 'Mustang', img: 'img/mustang-frente.jpg' },
+    { id: 3, name: 'Mustang', img: 'img/mustang-traseira.jpg' },
     { id: 4, name: 'Ford antigo', img: 'img/ford-antigo.jpg' },
     { id: 5, name: 'Ford de corrida', img: 'img/ford-corrida.jpg' },
     { id: 6, name: 'Mustang', img: 'img/mustang-antigo-frente.jpg' },
     { id: 7, name: 'Mustang', img: 'img/mustang-fundo.jpg' },
-    { id: 8, name: 'Mustang', img: 'img/mustang-traseira.jpg' }
   ];
 
-  ngOnInit() { 
+  setId: number = 0;
+
+  ngOnInit() {
     this.setBgImage();
   }
 
+  ngAfterViewInit() {
+    this.setBgImage();
+  }
 
   setBgImage() {
-    const myElement = document.getElementById("bgBig");  
-  
-    const setId: number = Math.floor(Math.random() * 7); 
-    
-  
-    if (myElement) {
-      const imgSrc = this.cards[setId].img; 
-      const imgAlt = this.cards[setId].name; 
-  
-      
-      myElement.style.backgroundImage = `url('${imgSrc}')`;
+    if (isPlatformBrowser(this.platformId)) { // Verifica se está no navegador
+      const myElement = document.getElementById("bgBig");
 
+      const setId: number = Math.floor(Math.random() * 7);
 
-      const imageElement = document.getElementById("myImage") as HTMLImageElement;
-      if (imageElement) {
-        imageElement.alt = imgAlt;  
+      if (myElement) {
+        const imgSrc = this.cards[setId].img;
+        const imgAlt = this.cards[setId].name;
+
+        myElement.style.backgroundImage = `url('${imgSrc}')`;
+
+        const imageElement = document.getElementById("myImage") as HTMLImageElement;
+        if (imageElement) {
+          imageElement.alt = imgAlt;
+        }
       }
     }
   }
-  
-  
-  
 }

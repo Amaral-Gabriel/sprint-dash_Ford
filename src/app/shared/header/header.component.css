@@ -7,3 +7,7 @@
     height: 100%; 
     background-color: #E85D0C; 
 }
+
+.logoutBtn {
+    right: 5px;
+}
