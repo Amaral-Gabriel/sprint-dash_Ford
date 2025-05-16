@@ -3,6 +3,7 @@ import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
 import { HeaderComponent } from '../../shared/header/header.component';
 
+
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -14,10 +15,10 @@ export class HomeComponent implements OnInit {
   
   constructor(
     private router: Router,
-    @Inject(PLATFORM_ID) private platformId: Object // Injeta o ID da plataforma
+    @Inject(PLATFORM_ID) private platformId: Object 
   ) {}
 
-  cards = [
+  cards = [ // List of  vehicles
     { id: 1, name: 'Ranger', img: 'img/ranger-frente.jpg' },
     { id: 2, name: 'Mustang', img: 'img/mustang-frente.jpg' },
     { id: 3, name: 'Mustang', img: 'img/mustang-traseira.jpg' },
@@ -38,8 +39,8 @@ export class HomeComponent implements OnInit {
   }
 
   setBgImage() {
-    if (isPlatformBrowser(this.platformId)) { // Verifica se está no navegador
-      const myElement = document.getElementById("bgBig");
+    if (isPlatformBrowser(this.platformId)) { // Verify is it's on server
+      const myElement = document.getElementById("bgBig"); // Work only on Browser
 
       const setId: number = Math.floor(Math.random() * 7);
 

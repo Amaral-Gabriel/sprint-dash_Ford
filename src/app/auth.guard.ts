@@ -9,24 +9,22 @@ import { Inject, PLATFORM_ID } from '@angular/core';
 export class AuthGuard implements CanActivate {
   constructor(
     private router: Router,
-    @Inject(PLATFORM_ID) private platformId: Object // Injeta a plataforma
+    @Inject(PLATFORM_ID) private platformId: Object 
   ) {}
 
   canActivate(): boolean {
-    // Verifica se estamos no navegador
+    // Verify is on browser
     if (isPlatformBrowser(this.platformId)) {
       const token = localStorage.getItem('token');
       const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
       
-      if (!token || !isLoggedIn) {
+      if (!token || !isLoggedIn) { // Verify is logged e has a token
         this.router.navigate(['/login']);
         return false;
       }
     } else {
-      // Se estiver no servidor, sempre permite o acesso
-      return true;
+      return true; // Always permit on server
     }
-    
-    return true; // Se não tiver problemas com o token, o acesso é permitido
+    return true; 
   }
 }
