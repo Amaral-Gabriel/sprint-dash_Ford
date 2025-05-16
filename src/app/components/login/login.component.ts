@@ -34,7 +34,7 @@ export class LoginComponent { // Login class
 
     // Check if inputs are correctly
     if (this.loginObj.EmailId.trim() === "" || this.loginObj.Password.trim() === "") {
-      this.errorMessage = 'Por favor, preencha todos os campos!';
+      this.errorMessage = 'Please fill in all the fields!';
       return;
     }
 
@@ -46,7 +46,7 @@ export class LoginComponent { // Login class
       senha: this.loginObj.Password
     }).subscribe({ // Wait for the response
       next: (response: any) => { // If success
-        this.successMessage = 'Login realizado com sucesso!';
+        this.successMessage = 'Login successful!';
         localStorage.setItem('isLoggedIn', 'true');
         localStorage.setItem('token', 'fake-jwt-token');
         setTimeout(() => {
@@ -57,7 +57,7 @@ export class LoginComponent { // Login class
         if (err.status === 400 || err.status === 401) {
           this.errorMessage = err.error.message;
         } else {
-          this.errorMessage = 'Erro ao realizar login.';
+          this.errorMessage = 'Error while logging in.';
         }
         console.error('Erro:', err);
       }

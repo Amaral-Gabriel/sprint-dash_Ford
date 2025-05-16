@@ -17,13 +17,13 @@
       <!-- Image left -->
       <section class="col-md-7 d-flex align-items-center justify-content-center bg-whith">
         <div class="d-none d-md-flex whiteBG"></div>
-        <img class="img-fluid w-75" src="/img/ranger.png" alt="Ford Ranger na cor vermelha." />
+        <img class="img-fluid w-75" src="/img/ranger.png" alt="Red Ford Ranger" />
       </section>
 
       <!-- Login Section -->
       <section class="col-md-5 d-flex flex-column justify-content-center align-items-center bg-body-secondary p-4 position-relative">
-        <img src="/img/ford.png" class="img_Logo position-absolute justify-content-start top-0 mt-3" alt="Logo da Ford" />
-        <h1 class="my-4" id="textWelcome">Boas-vindas</h1>
+        <img src="/img/ford.png" class="img_Logo position-absolute justify-content-start top-0 mt-3 " alt="Ford logo" />
+        <h1 class="my-4 " id="textWelcome">Welcome</h1>
 
         <!-- Login forms -->
         <form class="w-100 px-3" (ngSubmit)="onLogin()" #loginForm="ngForm">
@@ -34,7 +34,7 @@
               <div class="col-11 position-relative">
                 <i class="bi bi-person position-absolute top-50 start-0 translate-middle-y ms-2"></i>
                 <input required type="text" [(ngModel)]="loginObj.EmailId"
-                name="email" class="form-control ps-4" placeholder="Insira seu e-mail" />
+                name="email" class="form-control ps-4" placeholder="Enter your email" />
               </div>
               <div class="col-1 text-end">
                 <i class="bi bi-info-circle ms-2"></i>
@@ -52,7 +52,7 @@
                     id="passwordInput"
                     [type]="showPasswordType ? 'text' : 'password'"
                     class="custom-input form-control ps-4 fs-7"
-                    placeholder="Insira sua senha">
+                    placeholder="Enter your password">
                     <i
                     (click)="showPassword()"
                     id="togglePassword"
@@ -66,7 +66,7 @@
             <div class="row g-0 align-items-center">
                 <div class="col-11 d-flex justify-content-end">
                   <div class="d-flex align-items-center gap-3 justify-content-end">
-                    <label for="custom-switch" class="d-flex flex-row-reverse ">Logar automaticamente</label>
+                    <label for="custom-switch" class="d-flex flex-row-reverse ">Auto-login</label>
                     <label class="custom-switch m-0">
                       <input type="checkbox" class="custom-input-checkbox" id="custom-switch" />
                       <span class="slider"></span>
@@ -81,7 +81,7 @@
 
             <!-- Button -->
              <div class="col-12 col-md-11">
-                <button type="submit" class="btn_Login btn btn-dark-moon w-100">Entrar
+                <button type="submit" class="btn_Login btn btn-dark-moon w-100">Enter
                 </button>
              </div>
 

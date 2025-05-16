@@ -25,7 +25,7 @@
           <!-- Vehicles cards -->
           <div class="col">
              <div class="card border-2  rounded-0 h-100"> 
-              <h5 class="card-header rounded-0">Veículo</h5>
+              <h5 class="card-header rounded-0">Vehicle</h5>
               <div class="card-body h3">
                 <select class="form-select w-100" (change)="onVehicleSelect($event)">
                   <option *ngFor="let v of vehicles" [value]="v.id">{{ v.vehicle }}</option>
@@ -42,10 +42,10 @@
           <!-- Sales card -->
           <div class="col">
             <div class="card rounded-0 border-2 h-100">
-              <h5 class="card-header rounded-0">Total de Vendas</h5>
+              <h5 class="card-header rounded-0">Total Sales</h5>
               <div class="card-body">
                 <h5 class="card-title text-primary h3">{{ totalVendas }}</h5>
-                <p class="card-text">Unid.</p>
+                <p class="card-text">Units</p>
               </div>
             </div>
           </div>
@@ -53,10 +53,10 @@
           <!-- Connected cars -->
           <div class="col">
             <div class="card rounded-0 border-2 h-100">
-              <h5 class="card-header rounded-0">Conectados</h5>
+              <h5 class="card-header rounded-0">Connected</h5>
               <div class="card-body">
                 <h5 class="card-title text-primary h3">{{ conectados }}</h5>
-                <p class="card-text">Unid.</p>
+                <p class="card-text">Units</p>
               </div>
             </div>
           </div>
@@ -67,7 +67,7 @@
               <h5 class="card-header rounded-0">Update Software</h5>
               <div class="card-body">
                 <h5 class="card-title text-primary h3">{{ updateSoftware }}</h5>
-                <p class="card-text">Unid.</p>
+                <p class="card-text">Units.</p>
               </div>
             </div>
           </div>
@@ -85,9 +85,9 @@
             <table class="tabela table table-striped w-100 border">
               <thead >
                 <tr>
-                  <th>Código - Vin</th>
-                  <th>Odômetro</th>
-                  <th>Nível de Combustível</th>
+                  <th>Code - Vin</th>
+                  <th>Odometer</th>
+                  <th>Fuel Level</th>
                   <th>Status</th>
                   <th>Lat.</th>
                   <th>Long.</th>
@@ -127,9 +127,9 @@
           <!-- Table for big screens (<768px) -->
           <div class="d-block d-md-none">
             <div class="card my-3 rounded-0 ">
-              <h5 class="card-header text-center">Status do Veículo</h5>
+              <h5 class="card-header text-center">Vehicle Status</h5>
               <div class="card-body">
-                <span><strong>Código - Vin: </strong>
+                <span><strong>Code - Vin: </strong>
                   <form (ngSubmit)="searchForVin()">
                     <input 
                       class="border-1" 
@@ -144,8 +144,8 @@
                     <button type="submit" class="btn"><h4><i class="bi bi-arrow-right mb-4" style="color: var(--ford-color);"></i></h4></button>
                   </form>
                 </span>
-                <p><strong>Odômetro:</strong> {{ vehicleData?.odometro || 0 }} Km</p>
-                <p><strong>Nível de Combustível:</strong> {{ vehicleData?.nivelCombustivel || 0 }}%</p>
+                <p><strong>Odometer:</strong> {{ vehicleData?.odometro || 0 }} Km</p>
+                <p><strong>Fuel Level:</strong> {{ vehicleData?.nivelCombustivel || 0 }}%</p>
                 <p><strong>Status: </strong> <span class=" fw-bold">{{ vehicleData?.status || "Veículo não encontrado"}}</span></p>
                 <p><strong>Lat.:</strong> {{ vehicleData?.lat || 0 }}</p>
                 <p><strong>Long.:</strong> {{ vehicleData?.long || 0 }}</p>
