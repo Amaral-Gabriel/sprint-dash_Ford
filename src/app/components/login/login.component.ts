@@ -39,7 +39,7 @@ export class LoginComponent { // Login class
     }
 
     // Change the port HERE
-    const url = `http://localhost:3005/login`; // Set the port
+    const url = `https://api-ford.onrender.com/login`; // Set the port
 
     this.http.post(url, { // Send data to server
       nome: this.loginObj.EmailId,

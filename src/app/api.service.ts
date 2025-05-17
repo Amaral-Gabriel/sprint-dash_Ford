@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ApiService {
-  private baseUrl = 'http://localhost:3005';
+  private baseUrl = 'https://api-ford.onrender.com';
 
   constructor(private http: HttpClient) {}
 
