@@ -1,6 +1,6 @@
 
 export default {
-  basePath: '/Sprint-Final',
+  basePath: '/sprint-dash_Ford',
   supportedLocales: {
   "en-US": ""
 },

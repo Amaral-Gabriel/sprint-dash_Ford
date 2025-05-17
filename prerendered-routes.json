@@ -1,8 +1,8 @@
 {
   "routes": {
-    "/Sprint-Final": {},
-    "/Sprint-Final/dashboard": {},
-    "/Sprint-Final/home": {},
-    "/Sprint-Final/login": {}
+    "/sprint-dash_Ford": {},
+    "/sprint-dash_Ford/dashboard": {},
+    "/sprint-dash_Ford/home": {},
+    "/sprint-dash_Ford/login": {}
   }
 }

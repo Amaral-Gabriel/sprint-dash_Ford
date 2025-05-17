@@ -2,34 +2,34 @@
 export default {
   bootstrap: () => import('./main.server.mjs').then(m => m.default),
   inlineCriticalCss: true,
-  baseHref: '/Sprint-Final/',
+  baseHref: '/sprint-dash_Ford/',
   locale: undefined,
   routes: [
   {
     "renderMode": 2,
-    "redirectTo": "/Sprint-Final/login",
-    "route": "/Sprint-Final"
+    "redirectTo": "/sprint-dash_Ford/login",
+    "route": "/sprint-dash_Ford"
   },
   {
     "renderMode": 2,
-    "route": "/Sprint-Final/login"
+    "route": "/sprint-dash_Ford/login"
   },
   {
     "renderMode": 2,
-    "route": "/Sprint-Final/home"
+    "route": "/sprint-dash_Ford/home"
   },
   {
     "renderMode": 2,
-    "route": "/Sprint-Final/dashboard"
+    "route": "/sprint-dash_Ford/dashboard"
   }
 ],
   entryPointToBrowserMapping: undefined,
   assets: {
-    'index.csr.html': {size: 23746, hash: '211d35c68ae41cb9ccec01865f8d117a885a91b90e6814b072256df278c30e46', text: () => import('./assets-chunks/index_csr_html.mjs').then(m => m.default)},
-    'index.server.html': {size: 1142, hash: '80273d6f00f4679b87320ac44149f5c20ceb82aaa5ba12f5702c17c1e6a7f940', text: () => import('./assets-chunks/index_server_html.mjs').then(m => m.default)},
-    'home/index.html': {size: 39697, hash: '41dc8201fd57ca26159c0ec1297fabcb83d7635a4255b3b7bb5f481eb1e07db4', text: () => import('./assets-chunks/home_index_html.mjs').then(m => m.default)},
-    'dashboard/index.html': {size: 47359, hash: '8e4448a79f78603413a6d6dd671dd8bd7e2731084ccc56496f14a859713e2c58', text: () => import('./assets-chunks/dashboard_index_html.mjs').then(m => m.default)},
-    'login/index.html': {size: 39099, hash: 'd46d1a7af71287b9a3dfa7bfed49567b978cea88754f657824b2825277df4c87', text: () => import('./assets-chunks/login_index_html.mjs').then(m => m.default)},
+    'index.csr.html': {size: 23750, hash: 'b73e7fb8d5922ffcedcfe066ac15fa7d38670e584ea44abb96bb8a875ba4cf4e', text: () => import('./assets-chunks/index_csr_html.mjs').then(m => m.default)},
+    'index.server.html': {size: 1146, hash: '158e1e5362fdb310664578105452b730d69fed3a7219082918fd9de80a157e0c', text: () => import('./assets-chunks/index_server_html.mjs').then(m => m.default)},
+    'login/index.html': {size: 39103, hash: '846d7c2a77e0f3a0cc305df7857e10e25b1597a38ca3f9d6691eced6e454c222', text: () => import('./assets-chunks/login_index_html.mjs').then(m => m.default)},
+    'home/index.html': {size: 39701, hash: 'e20bb6625af2a2a7e6573f362c41f504a9bb25333c688519562c0b4d4d8ad755', text: () => import('./assets-chunks/home_index_html.mjs').then(m => m.default)},
+    'dashboard/index.html': {size: 47363, hash: '77381d8da463636799bef1e63d584aa2bad40030efbcd4fb13d54cd169ea99de', text: () => import('./assets-chunks/dashboard_index_html.mjs').then(m => m.default)},
     'styles-WXBLT6FQ.css': {size: 250710, hash: '3+ed9U+21/E', text: () => import('./assets-chunks/styles-WXBLT6FQ_css.mjs').then(m => m.default)}
   },
 };
